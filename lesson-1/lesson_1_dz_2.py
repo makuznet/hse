@@ -14,6 +14,6 @@ for counter in range(len(data)):
 print()
 print()
 
-for _, phrase in enumerate(data): # _, означает ничего не значащее значение разделено запятой с тем, что будет выводится на печать
+for _ , phrase in enumerate(data): # _ , phrase — number is ommited, but the only value of phrase is printed
     print(phrase, end=' ')
 print()

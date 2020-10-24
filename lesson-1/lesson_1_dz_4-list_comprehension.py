@@ -23,9 +23,15 @@ print()
 # подстановку запятой осуществляем ппосле печати нулевого элемента строки (второй if проверяем условие)
 # но не после нулевого элемента последней строки (второй else)
 # не получилось приклеить запятую к нулевом элементу строки !!!
+# время на изучение теории и решения задачи: 2 часа
+# время на попытки "приклеить запятую" еще 2 часа
 
-[print(data[row][index], end=' ') if index != 0 else print('', data[row][index], end='') if row == 0 and index == 0 else print(data[row][index], ',', end='')
- for row in range(len(data)-1, -1, -1) for index in range(len(data[row])-1, -1, -1)]
+[
+    print(data[row][index], end=' ') if index != 0 or (row == index == 0)
+    else print(data[row][index], ',', end=' ')
+    for row in range(len(data)-1, -1, -1)
+    for index in range(len(data[row])-1, -1, -1)
+]
 
 print()
 print()

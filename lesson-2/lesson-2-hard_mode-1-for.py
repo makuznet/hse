@@ -16,9 +16,3 @@ for element in numbers:
         print(element, 'делится на 5. Поиск прерван.')
         break
 print()
-
-print('Если бы не break, задача бы решалась в одну строку:')
-print()
-
-[print(element, 'Не делится на 5') if element %
- 5 != 0 else print(element, 'делится на 5') for element in numbers]

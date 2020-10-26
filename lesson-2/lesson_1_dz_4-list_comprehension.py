@@ -28,7 +28,7 @@ print()
 
 [
     print(data[row][index], end=' ') if index != 0 or (row == index == 0)
-    else print(data[row][index], ',', end=' ')
+    else print(data[row][index], end=', ')
     for row in range(len(data)-1, -1, -1)
     for index in range(len(data[row])-1, -1, -1)
 ]

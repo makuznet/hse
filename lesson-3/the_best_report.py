@@ -1,4 +1,5 @@
 import string
+
 paul = """When this film first came out in 1980, I remember going to see it on opening night.
 This movie just scared the life out of me, which is what still happens every time
 I rent the video for a re-watch.I have seen The Shining at least six or seven times, and I still
@@ -67,10 +68,15 @@ of crap like the Ring and The Blair Witch Project. It may be a oldie, but is def
 reporters = ['Paul', 'Jane', 'Kate', 'Nick']
 report_bank = [paul, jane, kate, nick]
 reporters_rating = {}
+
 for index in range(len(reporters)):
     author = reporters[index]
-    report_length = len(set(report_bank[index].translate(str.maketrans(
-        '', '', string.punctuation)).split()))
+    report_length = len(
+        set(
+            report_bank[index].translate(str.maketrans(
+                '', '', string.punctuation)).split()
+        )
+    )
     reporters_rating.update({author: report_length})
 
 print()

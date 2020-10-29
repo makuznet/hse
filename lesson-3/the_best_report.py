@@ -1,3 +1,5 @@
+
+# Импортируем библиотеку, чтобы работал синтаксис .translate()
 import string
 
 paul = """When this film first came out in 1980, I remember going to see it on opening night.
@@ -65,12 +67,27 @@ the hell out of me and making me sure to get out once in awhile. My favorite sce
 from inside a walk-in refrigerator. The Shining is tops for horror movies in my opinion, beating the snot out
 of crap like the Ring and The Blair Witch Project. It may be a oldie, but is definitely a goodie."""
 
+# создаем список авторов, потому что еще не знаю, как подставить имя переменной в код
 reporters = ['Paul', 'Jane', 'Kate', 'Nick']
+
+# создаем список отзывов — переменных, за каждой из которых находится сам текст отзыва
 report_bank = [paul, jane, kate, nick]
+
+# создаем пустой словарь, где будут пары — автор: количество уникальных слов
 reporters_rating = {}
 
+# запускаем цикл, который поможет совершить операции над отзывами
 for index in range(len(reporters)):
+
+    # имя автора
     author = reporters[index]
+
+    # за один проход вычисляем длину каждого отзыва — report_bank[index]
+    # очищаяь от знаков препинания
+    # с помощью неизвестного пока метода .translate(str.maketrans('', '', string.punctuation )
+    # деля строку на элементы списка с помощью метода .split()
+    # превращая список в множество — set, чтобы убрать дубликаты слов в отзыве
+    # и вычисляя длину множества с помощью len
     report_length = len(
         set(
             report_bank[index].translate(str.maketrans(
@@ -78,12 +95,25 @@ for index in range(len(reporters)):
         )
     )
 
+    # добавляем имя автора и длину отзыва в словарь
     reporters_rating.update({author: report_length})
 
+# печатаем пустые строки для лучшей читаемости (\n не люблю использовать)
 print()
+
+# выводим на печать весь словарь, чтобы увидеть картину целиком
 print(reporters_rating)
+
 print()
+
+# поиск максимальной пары {ключ: значение} брал из интернета
+# еще не понимаю синтаксиса max()
+
+# выводим на печать имя автора с максимальным количеством уникальных слов
 print(max(reporters_rating, key=reporters_rating.get),
       'is the most sophisticated report author', end=': ')
+
+# добавляем на печать максимальное количество уникальных слов этого автора
 print(max(reporters_rating.values()), 'unique words.')
+
 print()

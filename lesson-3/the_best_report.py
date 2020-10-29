@@ -77,6 +77,7 @@ for index in range(len(reporters)):
                 '', '', string.punctuation)).split()
         )
     )
+
     reporters_rating.update({author: report_length})
 
 print()
@@ -84,5 +85,5 @@ print(reporters_rating)
 print()
 print(max(reporters_rating, key=reporters_rating.get),
       'is the most sophisticated report author', end=': ')
-print(max(reporters_rating.values()), 'uniqe words.')
+print(max(reporters_rating.values()), 'unique words.')
 print()

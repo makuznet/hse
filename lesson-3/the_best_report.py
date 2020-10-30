@@ -84,6 +84,7 @@ for index in range(len(reporters)):
     author = reporters[index]
 
     # за один проход вычисляем длину каждого отзыва — report_bank[index]
+    # переведя все символы в нижний регистр методом .lower()
     # очищаяь от знаков препинания
     # с помощью неизвестного пока метода .translate(str.maketrans('', '', string.punctuation )
     # деля строку на элементы списка с помощью метода .split()

@@ -91,7 +91,7 @@ for index in range(len(reporters)):
     # и вычисляя длину множества с помощью len
     report_length = len(
         set(
-            report_bank[index].translate(str.maketrans(
+            report_bank[index].lower().translate(str.maketrans(
                 '', '', string.punctuation)).split()
         )
     )

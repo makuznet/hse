@@ -1,12 +1,31 @@
 # программа принимает с клавиатуры слова, записанные кириллицей,
 # и печатает результат латиницей
+
+# создаем пустой словарь для пар кириллица: латиница
 translit = {}
+
+# строка ключей словаря
 cyrillic = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
+# строка значений ключей
 latin = 'abvgdeejzijklmnoprstufhzcss_y_euaABVGDEEJZIJKLMNOPRSTUFHZCSS_Y_EUA'
-[translit.update({bukva: letter}) for bukva in cyrillic for letter in latin]
-print(translit)
-# translit = {'е': '2', 'п': '3'}
-# cyrillic = input('Введите текст для транслитерации: ')
-# [print(translit.get(index), end='') if index
-#  in translit else print(index, end='') for index in cyrillic]
+
+# наполняем словарь
+[translit.update({cyrillic[index]: latin[index]})
+ for index in range(len(cyrillic))]
+
+# просим пользователя ввести текст на кириллице
+cyrillic = input('Введите текст для транслитерации: ')
+
+# обходим пользовательский ввод в цикле посимвольно
+# проверяем условие, если в словаре есть ключ, печатаем его значение
+# если в словаре нет ключа, печатаем пользовательский символ, как он есть
+[print(translit.get(index), end='') if index
+ in translit else print(index, end='') for index in cyrillic]
+print()
+
+# черновики
+# попытка автоматизировать наполнение словаря с помощью unicode номеров символов
+# не подходит в силу необходимости подставлять два символа латиницы к одному символу кириллицы
+# оставил в качестве подсказки для следующих задач
+# [print(chr(index), end=' ') for index in range(97, 120)]
 # print()

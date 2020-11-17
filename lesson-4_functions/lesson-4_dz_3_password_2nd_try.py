@@ -31,14 +31,23 @@ for index in range(14, 0, -4):
         passwd[index], random.choice('0123456789'))
 # print(passwd)
 
+capital = [symbol for symbol in passwd if symbol.isupper()]
+numbers = [symbol for symbol in passwd if symbol.isdigit()]
+
 print()
 print('Your password is', end=' ')
 [print(passwd[index], end='') for index in range(len(passwd))]
 print()
 print()
 
-capital = [symbol for symbol in passwd if symbol.isupper()]
-numbers = [symbol for symbol in passwd if symbol.isdigit()]
 print(len(capital), 'capital letters in the password:', capital)
 print(len(numbers), 'digits in the password:', numbers)
-print('Password length:', len(passwd))
+print('password length:', len(passwd))
+
+# Пример работы кода:
+#
+# Your password is cN3bzG9trP7znb3
+#
+# 3 capital letters in the password: ['N', 'G', 'P']
+# 4 digits in the password: ['3', '9', '7', '3']
+# Password length: 15

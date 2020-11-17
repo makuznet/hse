@@ -21,10 +21,13 @@ while len(passwd) < 15:
 
     candidate = random.choice(vocab)
 
+    # вычисляем количество символов каждого типа в пароле на текущем этапе
     lowcase = [symbol for symbol in passwd if symbol.islower()]
     capital = [symbol for symbol in passwd if symbol.isupper()]
     numbers = [symbol for symbol in passwd if symbol.isdigit()]
 
+    # добавляем символ-кандидат в пароль,
+    # если удовлетворяется одно из условий
     conditions = (
         candidate.islower() and len(lowcase) < 8,
         candidate.isupper() and len(capital) < 3,

@@ -13,8 +13,7 @@ with open(path, 'r') as f:
         except:
             result = None
         try:
-            result3 = re.search(r'[A-Z].+\,\s[A-Z]{2}\ \d{5}', line).group()
-            print(result3, '\n')
+            print(re.search(r'[A-Z].+\,\s[A-Z]{2}\ \d{5}', line).group(), '\n')
         except:
             result = None
 f.close()

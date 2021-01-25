@@ -1,0 +1,33 @@
+---
+- name: Run command on linux-servers
+  hosts: linux_servers
+  gather_facts: false
+
+  tasks:
+    - name: run command uname
+      command: uname -a
+
+    - name: run command issue
+      command: cat /etc/issue
+
+    - name: get date
+      shell: date "+%Y-%m-%d"
+      register: tmp_date
+
+    - name: find files to fetch
+      find:
+        paths: /etc/
+        patterns: "*"
+        recurse: yes
+        file_type: file
+        hidden: yes
+      register: files_2_fetch
+
+    - name: get the files
+      fetch:
+        src: "{{ item.path }}"
+        dest: /tmp/backup/{{ inventory_hostname }}/{{ tmp_date.stdout }}/
+        flat: yes
+      with_items: "{{ files_2_fetch.files }}"
+
+
